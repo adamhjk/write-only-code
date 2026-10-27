@@ -1,0 +1,94 @@
+/*
+ * Universe ’26 × Swamp Club × Until — design tokens
+ *
+ * Three sources, one system:
+ *   Until        near-black ink, lime #d9e61e, quiet starfield dust, soft glow
+ *   Swamp Club   pure black, neon cyan/pink/green, Orbitron + Chakra Petch HUD type,
+ *                RGB-split glitch titles, `// comment //` subtitles
+ *   GH Universe  Mona Sans display, mono labels with a green ■, hairline cell grid,
+ *                light "paper" surface, colored ticker strip
+ */
+
+:root {
+  /* ── Surfaces ─────────────────────────────────────────── */
+  --ink-0: #050607; /* deck background: between Swamp #000 and Until #080808 */
+  --ink-1: #0b0c0e; /* panel */
+  --ink-2: #13161a; /* raised panel / code block */
+  --ink-3: #1c2026; /* hover, track */
+
+  --paper: #e4ebe6; /* Universe light surface */
+  --paper-2: #f2f5f3;
+  --paper-ink: #0f1511;
+  --paper-ink-2: #58635b;
+  --paper-line: #c4ccc6;
+
+  /* ── Text ─────────────────────────────────────────────── */
+  --fg: #f2f5f3;
+  --fg-2: rgb(242 245 243 / 0.68);
+  --fg-3: rgb(242 245 243 / 0.44);
+  --fg-on-accent: #080808;
+
+  /* ── Lines (Universe hairline grid) ──────────────────── */
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.22);
+
+  /* ── Brand accents (UI, type, glow — not data marks) ─── */
+  --until-lime: #d9e61e;
+  --until-lime-glow: rgb(217 230 30 / 0.35);
+  --swamp-cyan: #22d3ee;
+  --swamp-pink: #ec4899;
+  --swamp-green: #3ee08f;
+  --swamp-amber: #fbbf24;
+  --gh-green: #08872b;
+  --gh-green-bright: #1fd14a;
+  --gh-mint: #86ea8d;
+  --gh-mustard: #c2a71a;
+  --gh-purple: #b48cff;
+
+  /* Speaker colors — each presenter "owns" their company accent */
+  --speaker-adam: var(--swamp-cyan);
+  --speaker-adam-2: var(--swamp-pink);
+  --speaker-dylan: var(--until-lime);
+
+  /* ── Data palette (validated: dark surface, CVD-checked, fixed order) ──
+     Brand hues pulled into the OKLCH L 0.62–0.67 band so marks stay
+     distinguishable. Always pair with direct labels (worst CVD ΔE 6.7). */
+  --data-1: #979c00; /* lime   — Until */
+  --data-2: #00a4c0; /* cyan   — Swamp */
+  --data-3: #df3c8c; /* pink   — Swamp */
+  --data-4: #2e9e52; /* green  — GitHub */
+  --data-5: #926fe3; /* purple */
+  --data-6: #da720d; /* orange */
+
+  /* ── Type ─────────────────────────────────────────────── */
+  --font-display: "Mona Sans Variable", "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Mona Sans Variable", "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-hud: "Orbitron", "Chakra Petch", ui-sans-serif, sans-serif;
+  --font-label: "Chakra Petch", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale for a 1920×1080 canvas, sized for a large conference room.
+     1px here ≈ 0.67pt on a 13.33in slide, so 36px ≈ 24pt.
+       running text  ≥ 36px   (--t-body and up)
+       secondary     ≥ 30px   (--t-small: sub-lines, captions, chart labels)
+       short labels  ≥ 26px   (--t-label: uppercase HUD / mono kickers only)
+       chrome        ≥ 20px   (--t-chrome: path bar, footer, slide number —
+                               wayfinding for the presenter, not content)
+     Nothing the audience needs to read goes below --t-label. */
+  --t-mega: 220px;
+  --t-hero: 136px;
+  --t-h1: 104px;
+  --t-h2: 72px;
+  --t-h3: 52px;
+  --t-lead: 44px;
+  --t-body: 36px;
+  --t-small: 30px;
+  --t-label: 26px;
+  --t-chrome: 20px;
+
+  /* ── Layout ───────────────────────────────────────────── */
+  --gutter: 96px;
+  --chrome-h: 72px;
+  --radius: 6px;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

@@ -1,0 +1,31 @@
+{
+  "name": "universe26-deck",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource-variable/mona-sans": "5.3.0",
+    "@fontsource/chakra-petch": "5.3.0",
+    "@fontsource/orbitron": "5.3.0",
+    "@revealjs/react": "0.2.2",
+    "d3": "7.9.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "reveal.js": "6.0.2"
+  },
+  "devDependencies": {
+    "@types/d3": "7.4.3",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "5.9.3",
+    "vite": "8.3.5"
+  }
+}
