@@ -1,6 +1,7 @@
 import { TitleSlide, SpeakersSlide } from "../slides/Openers";
 import { Agenda } from "./Agenda";
 import { Section } from "./Section";
+import { CodingAtSwamp } from "./sections/CodingAtSwamp";
 import { QUESTION, INTROS, TOPICS } from "./topics";
 
 /**
@@ -15,7 +16,19 @@ export function Talk() {
       <Agenda />
 
       <Section topic={INTROS.until}>{/* slides */}</Section>
-      <Section topic={INTROS.swamp}>{/* slides */}</Section>
+      <Section
+        topic={INTROS.swamp}
+        notes={
+          <ul>
+            <li>Swamp lets you build AI systems from reusable, deterministic behaviors.</li>
+            <li>Started working on it in Feb of 2026.</li>
+            <li>For startup nerds, we have both customers from a product led growth motion and enterprise customers.</li>
+            <li>I say this to front run the most common argument, which is nobody works like this if they have real customers.</li>
+          </ul>
+        }
+      >
+        <CodingAtSwamp />
+      </Section>
 
       <Section topic={TOPICS.softwareFactories}>{/* slides */}</Section>
       <Section topic={TOPICS.planReview}>{/* slides */}</Section>

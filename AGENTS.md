@@ -126,6 +126,8 @@ To fill a section, put slides inside it in `Talk.tsx`:
 
 Use `<aside className="notes">` inside the `<Slide>` for anything longer than
 a line (lists, multiple paragraphs). The `notes` prop only takes plain text.
+A section's title slide takes its notes from `<Section notes={…}>` (a string
+or JSX).
 Press `S` in the browser to open the speaker view.
 
 ## The boneyard: style reference
@@ -200,7 +202,7 @@ green ■, hairline cell grid, light “paper” surface).
 
 ## Working on this repo
 
-- Use copy the presenters give you exactly as written. Only fix spelling.
+- Use copy the presenters give you exactly as written. Fixing spelling and making capitalization consistent is fine; don't change the words.
 - Check your changes in the browser, not just the build. A dev server is
   usually already running; reuse it instead of starting another, and don't
   kill it.

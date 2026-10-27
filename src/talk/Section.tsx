@@ -18,20 +18,21 @@ const SPEAKER: Record<Who, { name: string; org: string; photo: string }> = {
  *     <Slide>…</Slide>
  *   </Section>
  */
-export function Section({ topic, children }: { topic: Topic; children?: ReactNode }) {
+export function Section({ topic, notes, children }: { topic: Topic; notes?: ReactNode; children?: ReactNode }) {
   return (
     <>
-      <SectionTitle topic={topic} />
+      <SectionTitle topic={topic} notes={notes} />
       <SectionContext.Provider value={{ id: topic.id, who: topic.who }}>{children}</SectionContext.Provider>
       <Agenda />
     </>
   );
 }
 
-function SectionTitle({ topic }: { topic: Topic }) {
+function SectionTitle({ topic, notes }: { topic: Topic; notes?: ReactNode }) {
   const speakers: Who[] = topic.who === "both" ? ["dylan", "adam"] : [topic.who];
   return (
     <Slide id={topic.id}>
+      {notes && <aside className="notes">{notes}</aside>}
       <Frame section={topic.id} speaker={topic.who} center grid>
         <Kicker>section</Kicker>
         <h1 className="display display--hero" style={{ marginTop: 40 }}>

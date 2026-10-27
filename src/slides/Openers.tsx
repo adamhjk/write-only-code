@@ -81,7 +81,7 @@ export function SpeakersSlide() {
               initials="AJ"
               photo="/speakers/adam.jpg"
               name="Adam Jacob"
-              role="Swamp Club. Previously co-founded Chef and System Initiative."
+              role="Swamp Club - building AI systems out of repeatable behaviors. Previously co-founded Chef and System Initiative."
               logo={<SwampClubLockup height={48} />}
             />
           </div>
