@@ -17,6 +17,31 @@ import {
 import { ChartSlide, DiagramSlide } from "./slides/Viz";
 import { BoneyardSlide } from "./slides/Boneyard";
 
+// The sample layouts are style reference only, never part of the talk.
+// View them on their own at /?boneyard.
+const BONEYARD = new URLSearchParams(window.location.search).has("boneyard");
+
+function Boneyard() {
+  return (
+    <>
+      <BoneyardSlide />
+      <AgendaSlide />
+      <SectionSlide n="01" title="Code nobody reads" sub="what changes when agents write the diff" who="adam" />
+      <StatementSlide />
+      <BulletsSlide />
+      <CompareSlide />
+      <CodeSlide />
+      <DiagramSlide />
+      <ChartSlide />
+      <StatsSlide />
+      <QuoteSlide />
+      <MediaSlide />
+      <DemoSlide />
+      <ThanksSlide />
+    </>
+  );
+}
+
 export function App() {
   return (
     <>
@@ -37,23 +62,7 @@ export function App() {
         }}
         plugins={[RevealHighlight, RevealNotes]}
       >
-        <Talk />
-
-        {/* ── Boneyard: sample layouts, not part of the talk ── */}
-        <BoneyardSlide />
-        <AgendaSlide />
-        <SectionSlide n="01" title="Code nobody reads" sub="what changes when agents write the diff" who="adam" />
-        <StatementSlide />
-        <BulletsSlide />
-        <CompareSlide />
-        <CodeSlide />
-        <DiagramSlide />
-        <ChartSlide />
-        <StatsSlide />
-        <QuoteSlide />
-        <MediaSlide />
-        <DemoSlide />
-        <ThanksSlide />
+        {BONEYARD ? <Boneyard /> : <Talk />}
       </Deck>
     </>
   );

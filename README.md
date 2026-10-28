@@ -59,9 +59,9 @@ Each slide is `<Slide><Frame …>…</Frame></Slide>`. `Frame` provides the chro
 - `variant` — `"ink"` (default), `"paper"` (Universe light), `"lime"` (Until)
 - `flush` — no padding, for `.cells` layouts; `center`, `grid`, `bare`
 
-The talk is everything before the **Boneyard** slide (slide 3). The sample
-layouts sit after it as reference: copy one up into the talk, then edit it.
-They live in `src/slides/`:
+The sample layouts aren't in the talk deck. View them on their own at
+`/?boneyard` and copy one into the talk, then edit it. They live in
+`src/slides/`:
 
 | Layout | Component |
 | --- | --- |

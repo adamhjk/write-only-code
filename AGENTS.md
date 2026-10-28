@@ -29,7 +29,7 @@ index.html             Vite entry
 public/speakers/       square headshots (adam.jpg, dylan.jpg, 480×480)
 src/
   main.tsx             fonts + reveal.css + theme.css, mounts <App>
-  App.tsx              <Deck> config, then <Talk />, then the boneyard
+  App.tsx              <Deck> config; renders <Talk />, or the boneyard at /?boneyard
   talk/                THE TALK
     topics.ts          every section: id, title, speaker
     Talk.tsx           running order; section slides go here
@@ -39,7 +39,7 @@ src/
     Openers.tsx        TitleSlide, SpeakersSlide (“hello”), sample layouts
     Content.tsx        sample layouts
     Viz.tsx            sample d3 diagram + chart slides
-    Boneyard.tsx       the BONEYARD divider
+    Boneyard.tsx       the BONEYARD divider (first slide of /?boneyard)
   components/
     Frame.tsx          slide chrome; SectionContext; SpeakerChip; Kicker
     Brand.tsx          Until + Swamp Club logos (inline SVG)
@@ -68,8 +68,10 @@ Agenda
 ├─ Creativity                (Adam)    │
 ├─ Team Dynamics             (Dylan)   ┘
 └─ Question                  (both)      full-width row under the grid
-BONEYARD         end of talk; sample layouts after this are reference only
 ```
+
+The deck ends after Question's return to the agenda. The boneyard is a
+separate view (see below), never part of the talk.
 
 The talk is non-linear: the audience shouts a topic, the presenters click it
 on the agenda, present that section, and land back on the agenda.
@@ -133,10 +135,10 @@ Press `S` in the browser to open the speaker view.
 
 ## The boneyard: style reference
 
-Everything after the BONEYARD slide is a library of sample layouts built in
-the deck's style. It is not part of the talk. It's the visual reference for
-building section slides. Open it at `#/boneyard` and arrow forward, or press
-`O` for the overview.
+The boneyard is a library of sample layouts built in the deck's style. It is
+not part of the talk deck. It's the visual reference for building section
+slides. Open it on its own at `/?boneyard` (e.g. http://localhost:5173/?boneyard)
+and arrow through, or press `O` for the overview.
 
 | Layout | Component | File | Use it for |
 | --- | --- | --- | --- |
@@ -176,7 +178,7 @@ How to use it:
 - **Leave the boneyard intact.** Don't edit or delete samples while building
   the talk; they're the reference. If you make a genuinely new reusable
   layout, add a sample of it to the boneyard too.
-- Never link to or present boneyard slides during the talk.
+- The boneyard only renders at `/?boneyard`. Never add its slides to the talk deck.
 
 ## Style rules
 
