@@ -860,3 +860,136 @@ body,
 .reveal a.agenda__cell:hover .agenda__arrow {
   color: var(--until-lime);
 }
+
+/* ── untl dashboard (from until.dev, overmindtech/until-landing) ──────────
+   The terminal on the landing page, recoloured with deck tokens and animated
+   like the real CLI: rows glide to new places, changed rows glow on arrival,
+   a trail says what happened. Row markup comes from src/talk/untlStory.ts and
+   keeps the site's short class names. */
+
+.untl {
+  border-radius: 14px;
+  background: var(--ink-1);
+  color: var(--fg);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.08),
+    0 0 0 1px var(--line-strong),
+    0 30px 90px -20px rgb(0 0 0 / 0.9),
+    0 0 120px -40px var(--until-lime-glow);
+}
+.untl__bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 24px;
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--line);
+}
+.untl__bar i { width: 14px; height: 14px; border-radius: 50%; background: var(--ink-3); }
+.untl__bar span {
+  flex: 1;
+  margin-right: 66px;
+  text-align: center;
+  font-size: var(--t-chrome);
+  color: var(--fg-3);
+}
+.untl__scroll { overflow: hidden; padding-top: 18px; }
+.untl__body {
+  position: relative;
+  height: calc(var(--lines) * 1.6em);
+  font-size: var(--t-label);
+  line-height: 1.6;
+  transition: opacity 0.4s ease;
+}
+.untl__body.is-fading { opacity: 0; }
+.untl__measure {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  padding: 0 1.2em;
+}
+.untl .l {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  isolation: isolate;
+  white-space: pre;
+  padding: 0 1.2em;
+  min-height: 1.6em;
+  /* the CLI's slide: 420ms, eased at both ends */
+  transition: transform 0.42s cubic-bezier(0.45, 0, 0.55, 1);
+  /* new lines appear in the second half of the slide */
+  animation: untl-in 0.3s 0.25s both;
+}
+@keyframes untl-in { from { opacity: 0; } }
+/* the header's counts sit left and the done count right */
+.untl .hd > span:not(.untl__glow):not(.untl__trail) { display: flex; justify-content: space-between; gap: 2ch; }
+
+/* a row that changed: lit as it arrives, then cools */
+.untl__glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(217 230 30 / 0.22);
+  animation: untl-glow 2.2s 0.3s ease-out both;
+}
+@keyframes untl-glow {
+  0%, 35% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* the trail after a row: says what happened, then fades to muted */
+.untl__trail { animation: untl-trail 4s 0.3s ease-out both; }
+.untl__trail--brand { --trail: var(--until-lime); }
+.untl__trail--ok { --trail: var(--swamp-green); }
+.untl__trail--warn { --trail: var(--swamp-amber); }
+.untl__trail--dec { --trail: var(--gh-purple); }
+@keyframes untl-trail {
+  0% { opacity: 0; color: var(--trail); }
+  10%, 60% { opacity: 1; color: var(--trail); }
+  100% { opacity: 1; color: var(--fg-3); }
+}
+
+.untl b { font-weight: 700; }
+.untl .h { display: inline-block; padding: 0 1ch; background: var(--until-lime); color: var(--fg-on-accent); font-weight: 700; }
+.untl .f { color: var(--fg-3); }
+.untl .br { color: var(--until-lime); }
+.untl .ok { color: var(--swamp-green); }
+.untl .bad { color: var(--swamp-pink); }
+.untl .warn { color: var(--swamp-amber); }
+.untl .dec { color: var(--gh-purple); }
+.untl .lb { color: var(--swamp-cyan); }
+.untl .you { color: var(--until-lime); font-weight: 700; }
+.untl .ag { color: var(--swamp-cyan); }
+.untl .pp { color: var(--swamp-amber); }
+.untl .dim > span:not(.untl__glow) { opacity: 0.45; }
+.untl__foot { font-size: var(--t-label); line-height: 1.6; margin-top: 0.6em; padding: 0 1.2em 0.7em; }
+.untl__foot .rule { display: block; height: 0; border-top: 1px solid var(--fg-3); opacity: 0.6; margin-bottom: 0.45em; }
+.untl__foot .row { display: flex; justify-content: space-between; gap: 2ch; white-space: pre; }
+
+/* where the story is up to: the site's four steps as a timeline */
+.untl-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.untl-steps li { display: grid; align-content: start; gap: 12px; color: var(--fg-3); transition: color 0.4s ease; }
+.untl-steps li.is-on { color: var(--fg); }
+.untl-steps li.is-past { color: var(--fg-2); }
+.untl-steps__bar { display: block; height: 4px; background: var(--line-strong); overflow: hidden; }
+.untl-steps__bar i {
+  display: block;
+  height: 100%;
+  background: var(--until-lime);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+.untl-steps__n { font-family: var(--font-mono); font-size: var(--t-label); }
+.untl-steps__title { font-size: var(--t-small); line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }

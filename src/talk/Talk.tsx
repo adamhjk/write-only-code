@@ -3,6 +3,24 @@ import { Agenda } from "./Agenda";
 import { Section } from "./Section";
 import { CodingAtSwamp } from "./sections/CodingAtSwamp";
 import { QUESTION, INTROS, TOPICS } from "./topics";
+import {
+  UntilNotAPeerSlide,
+  UntilProcessSlide,
+  UntilRespectSlide,
+  UntilResultsSlide,
+  UntilSleepwalkSlide,
+  UntilWhoSlide,
+} from "./Until";
+import { FlowCompareSlide, FlowHowSlide, FlowInterruptSlides, FlowStrategySlides } from "./Flow";
+import {
+  TeamAiHandoffSlide,
+  TeamBalanceSlide,
+  TeamConwaySlide,
+  TeamForkSlide,
+  TeamHandoffsSlide,
+} from "./TeamDynamics";
+import { TribalAdamSlide, TribalParadoxSlide } from "./TribalKnowledge";
+import { PlanConfidenceSlide, PlanContentsSlide, PlanSizeSlide } from "./PlanReview";
 
 /**
  * The talk. Put each section's slides inside its <Section>; the title slide
@@ -15,7 +33,14 @@ export function Talk() {
       <SpeakersSlide />
       <Agenda />
 
-      <Section topic={INTROS.until}>{/* slides */}</Section>
+      <Section topic={INTROS.until}>
+        <UntilWhoSlide />
+        <UntilSleepwalkSlide />
+        <UntilRespectSlide />
+        <UntilNotAPeerSlide />
+        <UntilProcessSlide />
+        <UntilResultsSlide />
+      </Section>
       <Section
         topic={INTROS.swamp}
         notes={
@@ -31,13 +56,31 @@ export function Talk() {
       </Section>
 
       <Section topic={TOPICS.softwareFactories}>{/* slides */}</Section>
-      <Section topic={TOPICS.planReview}>{/* slides */}</Section>
-      <Section topic={TOPICS.tribalKnowledge}>{/* slides */}</Section>
+      <Section topic={TOPICS.planReview}>
+        <PlanContentsSlide />
+        <PlanSizeSlide />
+        <PlanConfidenceSlide />
+      </Section>
+      <Section topic={TOPICS.tribalKnowledge}>
+        <TribalParadoxSlide />
+        <TribalAdamSlide />
+      </Section>
       <Section topic={TOPICS.compliance}>{/* slides */}</Section>
       <Section topic={TOPICS.product}>{/* slides */}</Section>
-      <Section topic={TOPICS.flow}>{/* slides */}</Section>
+      <Section topic={TOPICS.flow}>
+        <FlowInterruptSlides />
+        <FlowStrategySlides />
+        <FlowCompareSlide />
+        <FlowHowSlide />
+      </Section>
       <Section topic={TOPICS.creativity}>{/* slides */}</Section>
-      <Section topic={TOPICS.teamDynamics}>{/* slides */}</Section>
+      <Section topic={TOPICS.teamDynamics}>
+        <TeamBalanceSlide />
+        <TeamForkSlide />
+        <TeamHandoffsSlide />
+        <TeamConwaySlide />
+        <TeamAiHandoffSlide />
+      </Section>
 
       <Section topic={QUESTION}>{/* slides */}</Section>
     </>
