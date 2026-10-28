@@ -2,6 +2,10 @@ import { TitleSlide, SpeakersSlide } from "../slides/Openers";
 import { Agenda } from "./Agenda";
 import { Section } from "./Section";
 import { CodingAtSwamp } from "./sections/CodingAtSwamp";
+import { SoftwareFactories } from "./sections/SoftwareFactories";
+import { Compliance } from "./sections/Compliance";
+import { Product } from "./sections/Product";
+import { Creativity } from "./sections/Creativity";
 import { QUESTION, INTROS, TOPICS } from "./topics";
 import {
   UntilNotAPeerSlide,
@@ -55,7 +59,9 @@ export function Talk() {
         <CodingAtSwamp />
       </Section>
 
-      <Section topic={TOPICS.softwareFactories}>{/* slides */}</Section>
+      <Section topic={TOPICS.softwareFactories}>
+        <SoftwareFactories />
+      </Section>
       <Section topic={TOPICS.planReview}>
         <PlanContentsSlide />
         <PlanSizeSlide />
@@ -65,15 +71,21 @@ export function Talk() {
         <TribalParadoxSlide />
         <TribalAdamSlide />
       </Section>
-      <Section topic={TOPICS.compliance}>{/* slides */}</Section>
-      <Section topic={TOPICS.product}>{/* slides */}</Section>
+      <Section topic={TOPICS.compliance}>
+        <Compliance />
+      </Section>
+      <Section topic={TOPICS.product}>
+        <Product />
+      </Section>
       <Section topic={TOPICS.flow}>
         <FlowInterruptSlides />
         <FlowStrategySlides />
         <FlowCompareSlide />
         <FlowHowSlide />
       </Section>
-      <Section topic={TOPICS.creativity}>{/* slides */}</Section>
+      <Section topic={TOPICS.creativity}>
+        <Creativity />
+      </Section>
       <Section topic={TOPICS.teamDynamics}>
         <TeamBalanceSlide />
         <TeamForkSlide />

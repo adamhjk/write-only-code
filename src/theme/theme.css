@@ -993,3 +993,99 @@ body,
 }
 .untl-steps__n { font-family: var(--font-mono); font-size: var(--t-label); }
 .untl-steps__title { font-size: var(--t-small); line-height: 1.2; font-weight: 600; letter-spacing: -0.01em; }
+
+/* ── Creativity section effects ──────────────────────────── */
+
+/* Struck word: stays visible as a fragment; the strike draws in on click. */
+.reveal .strike-word.fragment {
+  opacity: 1;
+  visibility: inherit;
+}
+.strike-word {
+  position: relative;
+  display: inline-block;
+  transition: color 0.5s var(--ease-out);
+}
+.strike-word::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  top: 46%;
+  height: 0.09em;
+  background: var(--swamp-pink);
+  box-shadow: 0 0 24px rgb(236 72 153 / 0.6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+.strike-word.visible { color: var(--fg-3); }
+.strike-word.visible::after { transform: scaleX(1); }
+
+/* Shifting brand gradient fill */
+.grad-text {
+  background: linear-gradient(90deg, var(--until-lime), var(--swamp-cyan), var(--swamp-pink), var(--until-lime));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: grad-shift 8s linear infinite;
+}
+@keyframes grad-shift {
+  to { background-position: 300% 0; }
+}
+
+/* Words that fade in and float while the slide is showing */
+.drift-word {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: var(--t-small);
+  color: var(--fg-3);
+  opacity: 0;
+}
+.reveal section.present .drift-word {
+  animation: drift-in 0.8s var(--ease-out) forwards, drift 6s ease-in-out infinite alternate;
+}
+@keyframes drift-in {
+  to { opacity: 1; }
+}
+@keyframes drift {
+  from { transform: translateY(-10px); }
+  to { transform: translateY(10px); }
+}
+
+/* Toggle switch: off by default, flips on when its slide is present */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  flex: none;
+  border: 5px solid var(--fg-3);
+  border-radius: 999px;
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+.toggle__knob {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  background: var(--fg-3);
+  transition: transform 0.55s cubic-bezier(0.5, 1.6, 0.4, 1), background 0.4s;
+}
+.reveal section.present .toggle {
+  background: var(--until-lime);
+  border-color: var(--until-lime);
+  box-shadow: 0 0 80px rgb(217 230 30 / 0.55);
+  transition-delay: 0.9s;
+}
+.reveal section.present .toggle__knob {
+  transform: translateX(150px);
+  background: #080808;
+  transition-delay: 0.9s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .grad-text, .reveal section.present .drift-word { animation: none; opacity: 1; }
+}

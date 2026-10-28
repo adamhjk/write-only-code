@@ -43,6 +43,7 @@ src/
   components/
     Frame.tsx          slide chrome; SectionContext; SpeakerChip; Kicker
     Brand.tsx          Until + Swamp Club logos (inline SVG)
+    FitHeading.tsx     display heading that shrinks to fit its column
     Ticker.tsx, Starfield.tsx, useSlideActive.ts
   viz/                 d3 components (FlowDiagram, LineChart) + palette.ts
   theme/
