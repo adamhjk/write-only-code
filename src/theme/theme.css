@@ -97,18 +97,6 @@ body,
   box-shadow: 0 0 16px var(--until-lime-glow);
 }
 
-/* Slide number sits in the footer chrome */
-.reveal .slide-number {
-  right: 40px;
-  bottom: 28px;
-  background: transparent;
-  font-family: var(--font-mono);
-  font-size: var(--t-chrome);
-  letter-spacing: 0.06em;
-  color: #7c8980; /* mid-gray: legible on ink, paper and lime */
-}
-.reveal .slide-number a { border: 0; color: inherit; }
-
 .reveal .controls { color: var(--until-lime); }
 
 /* Fragments: a softer, Until-style rise */
@@ -831,10 +819,13 @@ body,
   display: grid;
   border-top: 1px solid var(--line);
 }
+.agenda__question {
+  grid-template-columns: 1fr 1fr;
+}
 .reveal a.agenda__cell--wide {
   justify-content: center;
-  border-right: 0;
 }
+.agenda__question > .agenda__cell:last-child { border-right: 0; }
 .agenda__cell--wide .agenda__title {
   margin-top: 0;
   font-size: 72px;
@@ -859,6 +850,59 @@ body,
 .reveal a.agenda__cell:hover .agenda__title,
 .reveal a.agenda__cell:hover .agenda__arrow {
   color: var(--until-lime);
+}
+
+/* ── Session survey (talk/Survey.tsx) ─────────────────────
+   Port of the Universe “How was this session?” dark template slide:
+   QR panel left, green rule, copy right, GitHub banner along the bottom. */
+
+.survey {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 830px 6px 1fr;
+  grid-template-rows: 830px 1fr;
+  background: var(--survey-ink);
+  color: var(--fg);
+  font-family: var(--font-display);
+}
+.survey__qr {
+  display: grid;
+  place-items: center;
+  background: var(--survey-panel);
+}
+.survey__qr img {
+  display: block;
+  width: 698px;
+  height: 698px;
+  margin: 0;
+}
+.survey__rule { background: var(--survey-rule); }
+.survey__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 120px 0 168px;
+}
+.reveal .survey__title {
+  margin: 0;
+  font-size: var(--t-hero);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--fg);
+  text-wrap: wrap;
+}
+.reveal .survey__body {
+  margin: 56px 0 0;
+  font-size: var(--t-lead);
+  line-height: 1.3;
+}
+.survey__cta { color: var(--survey-mint); }
+.survey__banner {
+  grid-column: 1 / -1;
+  border-top: 6px solid var(--survey-rule);
+  background: url("/media/survey-banner.png") center / cover no-repeat;
 }
 
 /* ── untl dashboard (from until.dev, overmindtech/until-landing) ──────────

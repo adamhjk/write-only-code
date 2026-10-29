@@ -45,6 +45,12 @@
   --gh-mustard: #c2a71a;
   --gh-purple: #b48cff;
 
+  /* Universe session-survey slide (talk/Survey.tsx), from the official template */
+  --survey-ink: #101411;
+  --survey-panel: #515e68;
+  --survey-rule: #08872a;
+  --survey-mint: #60ed83;
+
   /* Speaker colors — each presenter "owns" their company accent */
   --speaker-adam: var(--swamp-cyan);
   --speaker-adam-2: var(--swamp-pink);

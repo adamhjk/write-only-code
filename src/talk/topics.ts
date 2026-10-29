@@ -24,3 +24,6 @@ export const TOPICS = {
 
 /** Full-width row under the grid. */
 export const QUESTION = { id: "question", title: "Question", who: "both" } satisfies Topic;
+
+/** Sits to the right of Question on the agenda; links to the survey slide, not a section. */
+export const THE_END = { id: "the-end", title: "The End", who: "both" } satisfies Topic;

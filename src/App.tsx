@@ -55,7 +55,7 @@ export function App() {
           hash: true,
           controls: false,
           progress: true,
-          slideNumber: "c/t",
+          slideNumber: false,
           transition: "fade",
           transitionSpeed: "fast",
           backgroundTransition: "fade",

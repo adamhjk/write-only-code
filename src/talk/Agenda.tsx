@@ -1,6 +1,6 @@
 import { Slide } from "@revealjs/react";
 import { Frame } from "../components/Frame";
-import { QUESTION, INTROS, TOPICS, type Topic } from "./topics";
+import { QUESTION, INTROS, THE_END, TOPICS, type Topic } from "./topics";
 
 /**
  * The agenda. Drop it in wherever you want to return to it — after hello and
@@ -36,6 +36,7 @@ export function Agenda() {
           </div>
           <div className="agenda__question">
             <AgendaCell topic={QUESTION} wide />
+            <AgendaCell topic={THE_END} wide />
           </div>
         </div>
       </Frame>

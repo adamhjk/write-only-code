@@ -24,6 +24,7 @@ import {
   TeamHandoffsSlide,
 } from "./TeamDynamics";
 import { TribalAdamSlide, TribalParadoxSlide } from "./TribalKnowledge";
+import { SurveySlide } from "./Survey";
 import { PlanConfidenceSlide, PlanContentsSlide, PlanSizeSlide } from "./PlanReview";
 
 /**
@@ -95,6 +96,8 @@ export function Talk() {
       </Section>
 
       <Section topic={QUESTION}>{/* slides */}</Section>
+
+      <SurveySlide />
     </>
   );
 }

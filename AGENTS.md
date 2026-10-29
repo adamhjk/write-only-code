@@ -35,6 +35,7 @@ src/
     Talk.tsx           running order; section slides go here
     Agenda.tsx         the agenda slide (reused)
     Section.tsx        section wrapper: title slide → your slides → agenda
+    Survey.tsx         closing session-survey slide (QR + banner in public/media/)
   slides/
     Openers.tsx        TitleSlide, SpeakersSlide (“hello”), sample layouts
     Content.tsx        sample layouts
@@ -67,10 +68,14 @@ Agenda
 ├─ Flow                      (Dylan)   │
 ├─ Creativity                (Adam)    │
 ├─ Team Dynamics             (Dylan)   ┘
-└─ Question                  (both)      full-width row under the grid
+├─ Question                  (both)    ┐ bottom row, side by side
+└─ The End                             ┘ links to the survey slide
+Survey           “How was this session?” QR (gh.io/sessionsurvey), last slide
 ```
 
-The deck ends after Question's return to the agenda. The boneyard is a
+The deck ends on the survey slide (`talk/Survey.tsx`, `#/the-end`), right
+after Question's return to the agenda. It's a port of the official Universe
+template, not a section: no title slide, no chrome, no return to the agenda. The boneyard is a
 separate view (see below), never part of the talk.
 
 The talk is non-linear: the audience shouts a topic, the presenters click it
@@ -191,7 +196,7 @@ green ■, hairline cell grid, light “paper” surface).
 - Speaker colors: Adam = Swamp cyan, Dylan = Until lime.
 - **Type is sized for a large conference room.** On the 1920×1080 canvas:
   running text ≥ 36px, secondary text ≥ 30px, short uppercase/mono labels
-  ≥ 26px. Only the chrome (path bar, footer, slide number) goes down to 20px.
+  ≥ 26px. Only the chrome (path bar, footer) goes down to 20px.
   Use the `--t-*` scale; never go below `--t-label` for audience-facing text.
 - Chart/data colors come from `--data-*` / `src/viz/palette.ts`. They're
   validated for color-blind separation on the dark surface. Use them in
